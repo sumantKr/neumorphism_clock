@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./clock_1.css">
+    <link rel="stylesheet" href="./clock_2.css">
+    <title>Never Be Late</title>
+</head>
+<body>
+    <div class="clocks">
+    <div id="clock-1">
+        <div class="hr"></div>
+        <div class="min"></div>
+        <div class="sec"></div>
+    </div>
+    <div id="clock-2">
+        <div class="hr"></div>
+        <div class="min"></div>
+        <div class="sec"></div>
+    </div>
+    </div>
+</body>
+<script>
+    const deg=6;
+    const h= document.getElementById("clock-1").querySelector('.hr');
+    const m= document.getElementById("clock-1").querySelector('.min');
+    const s= document.getElementById("clock-1").querySelector('.sec');
+    const h1= document.getElementById("clock-2").querySelector('.hr');
+    const m1= document.getElementById("clock-2").querySelector('.min');
+    const s1= document.getElementById("clock-2").querySelector('.sec');
+    setInterval(()=>{
+        let day=new Date();
+        let hh=day.getHours()*30; 
+        let mm=day.getMinutes()*deg; 
+        let ss=day.getSeconds()*deg; 
+        h.style.transform=`rotateZ(${(hh)+(mm/12)}deg)`;
+        m.style.transform=`rotateZ(${mm}deg)`;
+        s.style.transform=`rotateZ(${ss}deg)`;
+        h1.style.transform=`rotateZ(${(hh)+(mm/12)}deg)`;
+        m1.style.transform=`rotateZ(${mm}deg)`;
+        s1.style.transform=`rotateZ(${ss}deg)`;
+        })
+</script>
+</html>
